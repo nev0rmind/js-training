@@ -1,0 +1,19 @@
+// for schleife
+
+for (let i=0; i<10; i++){
+
+  console.log("Zahl " + i);
+}
+
+//zwei variablen for schleife
+
+for (let i=0, j""; j.length<=15; i+ j+=i){
+document.write(i+ "-" + j + "<br>")
+}
+
+//document write
+
+for (let i=0 ; i < 10; i ++){
+document.write("Das Quadarat von "+i+"ist:");
+document.write(i*i + "<br>");
+
