@@ -73,10 +73,10 @@ if (weightToday > weightYesterday){
   window.alert(`Oh no, du Fettsack hast ${percentageGain}% zugenommen. 1 Woche Schnitzelverbot!`)
 }
 else if (weightToday < weightYesterday){
-  window.alert(`Wow! Du hast ${percentageLoss}% Gewicht verloren. Gratulation!`)
+  window.alert(`Wow! Du kleines Einhorn hast ${percentageLoss}% Gewicht verloren. Du hast dir ne Tofuwurst verdient!`)
 }
 else {
-  window.alert(`Dein Gewicht ist konstant. Herzlichen Glückwunsch, Sie sind ein Mensch.`)
+  window.alert(`Dein Gewicht ist konstant. Herzlichen Glückwunsch, Du bist ein Mensch.`)
 }
 
 
