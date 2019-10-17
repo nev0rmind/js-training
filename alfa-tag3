@@ -1,0 +1,214 @@
+let date = prompt ("Bitte trage das Datum im folgenden Format ein TT.MM.JJJJ");
+
+let day = date.substr(0,2);
+let month = Number(date.substr(3,2));
+let year = date.substr(6,4);
+
+switch (month){
+  case 1:
+  var monthname = "Januar";
+  break;
+  case 2:
+  var monthname = "Februar";
+  break;
+  case 3:
+  var monthname = "Maerz";
+  break;
+  case 4:
+  var monthname = "April";
+  break;
+  case 5:
+  var monthname = "Mai";
+  break;
+  case 6:
+  var monthname = "Juni";
+  break;
+  case 7:
+  var monthname = "Juli";
+  break;
+  case 8:
+  var monthname = "August";
+  break;
+  case 9:
+  var monthname = "September";
+  break;
+  case 10:
+  var monthname = "Oktober";
+  break;
+  case 11:
+  var monthname = "November";
+  break;
+  case 12:
+  var monthname = "Dezember";
+  break;
+  default:
+  window.alert("That is not a month on earth");
+}
+
+window.alert(`Heute ist der ${day}.${monthname} ${year}`);
+
+_______
+
+let browser = "Chrome";
+
+switch (browser) {
+    
+  case "Edge":
+    console.log("Das geht!");
+    break;
+  case "Firefox":
+    console.log("Das geht nicht!");
+    break;
+    
+  default:
+    console.log("Bitte einen anderen Browser nutzen!");
+    
+}
+
+____
+
+let task = Number(prompt("Bitte rechne folgende Aufgabe aus: 2 + 2"));
+
+switch (task){
+    
+  case 4:
+  var taskAnswer = "Korrektamente";
+  break;
+  case 3:
+  var taskAnswer = "Zu Klein";
+  break;
+  case 5:
+  var taskAnswer = "Zu Gross";
+  break;
+  default:
+  console.log("Vollkommen falsch. Nochmal!");
+}  
+
+window.alert(taskAnswer);
+
+}
+
+____ 
+
+try {
+  throw "Meine eigene Fehlermeldung";
+} catch (fehler) {
+    console.log(fehler);
+    
+*/
+
+
+
+// 1. Quiz (tbc)
+
+// intro quiz
+
+"use strict";
+
+let username = prompt ("Bitte gib Deinen Namen ein!");
+
+alert(`Hallo ${username}. Willst Du spielen?`);
+
+let playerFitness = prompt("Wie fit fühlst du dich? Antwortmoeglichkeiten: stark – mittel – schwach");
+
+if (playerFitness == "stark" || playerFitness == "mittel") {
+  alert("Alles klar – los gehts!");
+}
+else {
+  alert("Dann geh mal lieber eine Runde schlafen!");
+  location.reload(); 
+}
+
+// 1. Frage
+
+let fightOne = prompt("Which Operator has the higher priority: * or + ?");
+
+if (fightOne == "+") {
+  alert(`Gratulation! ${fightOne} ist natuerlich korrekt!`);
+}
+else {
+  alert("Das stimmt leider nicht ganz. Noch einmal von vorne?");
+}
+
+// 2. Frage
+
+let fightTwo = prompt ("What's the German word for if?").toLowerCase();
+
+  if (fightTwo == "wenn" || fightTwo == "falls"){
+  alert ("absolut richtig!");   
+} 
+  else {
+  alert("Leider falsch!");
+}
+
+// 3. Frage
+
+let fightThree = prompt ("Now, please enter a string with a length between 8 and 15 characters…");
+
+if (fightThree.length >= 8 && fightThree.length <= 15){
+  alert("Sehr gut. Du kannst bis 15 zaehlen.");
+}
+else {
+  alert("Lern zaehlen, Vollidiot!");
+}
+
+
+
+// 2. Nadel im Heuhaufen
+
+let = nadelImHeuhaufen = "Heuhaufen Heuhaufen Heuhaufen Heuhaufen Heuhaufen Heuhaufen Heuhaufen Nadel Heuhaufen Heuhaufen Heuhaufen Heuhaufen Heuhaufen Heuhaufen Heuhaufen Heuhaufen Heuhaufen";
+
+let nadelPositionStart = nadelImHeuhaufen.indexOf("N");
+let nadelPositionEnd = nadelImHeuhaufen.indexOf("l");
+
+console.log("Von Position " + nadelPositionStart +  "\nBis Position " + nadelPositionEnd );
+
+
+// 3. Nutzereingabenvalidierung
+
+let Vorname = prompt ("Wie ist dein Vorname?");
+
+if (Vorname.length >= 100 || Vorname.length <= 2){
+  alert ("Bitte gib einen gueltigen Vornamen ein.")
+}
+
+let Nachname = prompt ("Wie ist dein Nachname?");
+
+if (Nachname.length >= 100 || Vorname.length <= 2){
+  alert ("Bitte gib einen gueltigen Nachnamen ein.")
+}
+
+let Geschlecht = prompt ("Welches Geschlecht hast Du? m oder w?").toLowerCase();
+
+if (Geschlecht !== "m" && Geschlecht !== "w"){
+  alert ("Kein gueltiger Wert!")
+}
+
+let Alter = Number(prompt ("Wie alt bist Du?"));
+
+if (Alter >= 150){
+  alert ("Bitte gib Dein richtiges Alter ein.")
+}
+
+console.log(Vorname + " " + Nachname + " " + Geschlecht + " " + Alter);
+
+
+
+// 4.
+
+
+
+let yearInput = Number(prompt ("Bitte gib das betreffende Jahr ein"));
+
+if (((yearInput/400) % 1 == 0))
+{
+console.log(yearInput + " ist ein Schaltjahr.");
+  }
+
+else if (((yearInput/100) % 1 != 0) && (yearInput/4) % 1 == 0) {
+  console.log(yearInput + " ist ein Schaltjahr.");
+}
+
+else {
+  console.log(yearInput + " ist kein Schaltjahr.");
+}
