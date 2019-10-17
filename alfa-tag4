@@ -78,3 +78,14 @@ else if (weightToday < weightYesterday){
 else {
   window.alert(`Dein Gewicht ist konstant. Herzlichen Glückwunsch, Sie sind ein Mensch.`)
 }
+
+// Aufgabe 3
+
+
+let itemNumber = prompt("Bitte Artikelnummer eingeben");
+
+if (itemNumber.charAt(0) == 0 ){
+ window.alert("Die Artikelnummer ist: " + itemNumber);
+} else {
+  window.alert ("Die Artikelnummer ist 0"+itemNumber);
+}
