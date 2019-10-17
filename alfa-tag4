@@ -83,10 +83,20 @@ else {
 // Aufgabe 3
 
 
+
+// Aufgabe 3
+
+
 let itemNumber = prompt("Bitte Artikelnummer eingeben");
 
+itemNumber = itemNumber.charAt(0) == 0 ? itemNumber=itemNumber :
+itemNumber = itemNumber.charAt(0) != 0 ? "0"+itemNumber : 
+
+
+/*
 if (itemNumber.charAt(0) == 0 ){
  window.alert("Die Artikelnummer ist: " + itemNumber);
 } else {
   window.alert ("Die Artikelnummer ist 0"+itemNumber);
 }
+*/
