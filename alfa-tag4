@@ -65,8 +65,8 @@ for (let i=1; i<=6; i++){
 let weightToday = Number(prompt("Bitte gib dein heutiges Gewicht in kg ein."));
 let weightYesterday = Number(prompt("Bitte gib dein gestriges Gewicht in kg ein:"));
 
-let percentageLoss = (((weightToday/weightYesterday)-1)*(-100)).toFixed(2);
-let percentageGain = ((weightYesterday/weightToday))-1*(-100)).toFixed(2);
+let percentageLoss = (((weightYesterday-weightToday)/weightYesterday)*(100)).toFixed(2);
+let percentageGain = ((weightYesterday-weightToday)/weightYesterday*(-100)).toFixed(2);
 
 
 if (weightToday > weightYesterday){
@@ -78,6 +78,7 @@ else if (weightToday < weightYesterday){
 else {
   window.alert(`Dein Gewicht ist konstant. Herzlichen Glückwunsch, Sie sind ein Mensch.`)
 }
+
 
 // Aufgabe 3
 
