@@ -5,6 +5,13 @@ for (let i=0; i<10; i++){
   console.log("Zahl " + i);
 }
 
+//alter for schleife
+
+for (let alter=9 ; alter <= 18;  alter++){
+  document.write("Du bist jetzt " + alter + " Jahre alt.<br>")
+}
+
+
 //zwei variablen for schleife
 
 for (let i=0, j""; j.length<=15; i+ j+=i){
@@ -17,3 +24,57 @@ for (let i=0 ; i < 10; i ++){
 document.write("Das Quadarat von "+i+"ist:");
 document.write(i*i + "<br>");
 
+// do while schleife
+
+// do while schleife
+
+let text = "Hallo ich spreche mit Dir! Ja mit Dir!";
+let suche = " ";
+let ersatz = "_";
+
+do {
+  text = text.substring(0, text.indexOf(suche)) + ersatz + text.substring(text.indexOf(suche+1))
+  document.write(text + "<br>");
+}
+while (text.indexOf(suche != -1));
+
+
+// while Schleife
+
+
+let nummer1 = 0, nummer2 = 0;
+
+while (nummer1 < 5) {
+  nummer1++;
+  nummer2 += nummer1;
+  console.log(nummer2);
+}
+
+
+
+// Aufgabe 1
+
+for (let i=1; i<=6; i++){
+  let randomNumber = (Math.floor((Math.random())*49))+1
+  console.log(randomNumber)
+}
+
+
+// Aufgabe 2
+
+let weightToday = Number(prompt("Bitte gib dein heutiges Gewicht in kg ein."));
+let weightYesterday = Number(prompt("Bitte gib dein gestriges Gewicht in kg ein:"));
+
+let percentageLoss = (((weightToday/weightYesterday))*.toFixed(2);
+let percentageGain = (((weightYesterday/weightToday))*.toFixed(2);
+
+
+if (weightToday > weightYesterday){
+  window.alert(`Oh no, du Fettsack hast ${percentageGain}% zugenommen. 1 Woche Schnitzelverbot!`)
+}
+else if (weightToday < weightYesterday){
+  window.alert(`Wow! Du hast ${percentageLoss}% Gewicht verloren. Gratulation!`)
+}
+else {
+  window.alert(`Dein Gewicht ist konstant. Herzlichen Glückwunsch, Sie sind ein Mensch.`)
+}
