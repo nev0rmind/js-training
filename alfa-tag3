@@ -4,42 +4,44 @@ let day = date.substr(0,2);
 let month = Number(date.substr(3,2));
 let year = date.substr(6,4);
 
+let monthname;
+
 switch (month){
   case 1:
-  var monthname = "Januar";
+  monthname = "Januar";
   break;
   case 2:
-  var monthname = "Februar";
+  monthname = "Februar";
   break;
   case 3:
-  var monthname = "Maerz";
+  monthname = "Maerz";
   break;
   case 4:
-  var monthname = "April";
+  monthname = "April";
   break;
   case 5:
-  var monthname = "Mai";
+  monthname = "Mai";
   break;
   case 6:
-  var monthname = "Juni";
+  monthname = "Juni";
   break;
   case 7:
-  var monthname = "Juli";
+  monthname = "Juli";
   break;
   case 8:
-  var monthname = "August";
+  monthname = "August";
   break;
   case 9:
-  var monthname = "September";
+  monthname = "September";
   break;
   case 10:
-  var monthname = "Oktober";
+  monthname = "Oktober";
   break;
   case 11:
-  var monthname = "November";
+  monthname = "November";
   break;
   case 12:
-  var monthname = "Dezember";
+  monthname = "Dezember";
   break;
   default:
   window.alert("That is not a month on earth");
