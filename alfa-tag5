@@ -151,4 +151,55 @@ let numbers = [1, 2, 3, 4];
 
 let hunde = new Array ("Pinscher", "Dackel", "Doberman", "Boxer");
 
-*/
+
+// 1. Aufgabe 
+
+const INPUT_DRIVEN_KM = Number(prompt("Gefahrene KM?"));
+const INPUT_USED_FUEL = Number(prompt("Verbrauchtes Benzin?"));
+const INPUT_TANK_SIZE = Number(prompt("Tankgröße?"));
+
+let getKmPerHundred = () => {
+
+let kmPerHundred = Math.round((INPUT_USED_FUEL/INPUT_DRIVEN_KM)*100);
+
+return kmPerHundred
+} 
+
+let maxRange = () => {
+
+let drivingRange = INPUT_TANK_SIZE * INPUT_DRIVEN_KM / INPUT_USED_FUEL;
+
+return drivingRange
+}
+
+document.write("Dein Auto verbraucht " + getKmPerHundred() + " Liter pro Hundert km.\n Und hat eine Reichweite von " + maxRange() + "km." );
+
+
+
+
+// 2. Aufgabe
+
+let urlReturn = (url) => {
+    return "<a href=\"http:\/\/www.google.de\">http:\/\/www.google.de<\/a>"
+  }
+  document.write(urlReturn("www.google.de"));
+
+
+  
+// 3. Aufgabe
+
+let inputCelsius = Number(prompt("Bitte Temperatur in Celsius eingeben"));
+
+let getFahrenheit = () => {
+  let fahrenheit = inputCelsius*9/5+32
+  return fahrenheit;
+}
+document.write("Es hat derzeit " + getFahrenheit() + " Grad Fahrenheit.");
+
+// 4. Aufgabe
+
+let hundeRassen = ["Boxer", "Terrier", "Bushido", "Schäfer"];
+
+for (var i = 0; i < hundeRassen.length; i++){
+    document.write(hundeRassen[i] + " ist ein Hund. <br>");
+}
