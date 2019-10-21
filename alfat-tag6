@@ -160,3 +160,46 @@ console.log(JSON.stringify(product));
 // wandelt JSON strings in JS Daten um
 
 console.log(JSON.parse('{"name": "Blade","price":10.00}'));
+
+
+//Aufgabe 1.
+
+
+let haferFlockenKekse = ["70ml Rapsöl", "1 getrenntes Ei", "100g Zucker", "1 TL Backpulver"];
+
+haferFlockenKekse.push("1 EL Mehl");
+
+haferFlockenKekse.splice(0, 0, "100g Haferflocken");
+
+haferFlockenKekse.splice(1, 1, "75g Butter");
+
+let newHaferFlockenKekse = (haferFlockenKekse.join("\n"));
+
+const HAFERFLOCKEN_KEKSE_ANLEITUNG = "Schmelzen Sie die Butter in einer Pfanne, geben Sie die Haferflocken dazu und vermischen Sie alles gut miteinander. Nehmen Sie die Masse danach vom Herd und lassen Sie sie etwas auskühlen. Nun schlagen Sie das Eiweiß mit Zucker steif und rühren Eigelb, Backpulver und Mehl unter. Vermengen Sie nun die Masse mit den abgekühlten Haferflocken. Setzen Sie kleine Teighäufchen auf ein Backblech. Die Häufchen sollten nicht zu groß sein, da der Teig beim Backen etwas auseinanderläuft. Im vorgeheizten Backofen bei 170 °C 15 Minuten backen."
+
+window.alert(`Zutaten \n\n ${newHaferFlockenKekse} \n\n Anleitung \n\n ${HAFERFLOCKEN_KEKSE_ANLEITUNG}`);
+
+//Aufgabe 2
+
+const HALTE_STELLEN = ["Nordostbahnhof", "Theresienkrankenhaus", "Teutoburger Str.", "Leipziger Str.", 
+"Dresdener Str.", "Spitalhof", "Hubertusstr.", "Tattersall", "Martha- Maria-Krkhs."];
+
+// console.log(HALTE_STELLEN.indexOf("Hubertusstr.")); //6
+
+// HALTE_STELLEN.splice (7, 2);
+
+let startBahnhof = prompt ("Wo möchtest du einsteigen?");
+let endBahnhof = prompt("Wo möchtest du aussteigen?");
+
+let halteStellenRechner = function (startBahnhof, endBahnhof){
+  
+  let numberStartBahnhof = HALTE_STELLEN.indexOf(startBahnhof);
+  let numberEndBahnhof = HALTE_STELLEN.indexOf(endBahnhof);
+  
+  return HALTE_STELLEN.slice(numberStartBahnhof, numberEndBahnhof + 1);
+};
+
+console.log(halteStellenRechner(startBahnhof, endBahnhof));
+
+
+
