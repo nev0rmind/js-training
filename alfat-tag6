@@ -1,3 +1,43 @@
+/*
+// Sortieren des Arrays mit sort
+
+let zahlen = [12,16,4,3,1];
+console.log(zahlen.sort());
+
+let zahlenPruefen = function (a,b) {
+  return a-b;
+}
+zahlen.sort(zahlenPruefen);
+console.log(zahlen);
+
+//Alphabetische Sortierung von Usern + Keyword Check
+
+let userOnline = ["Herbert", "Tim", "Frank", "Gerda", "Tanja", "Lena(Admin)"];
+
+let isAdmin = function (name) {
+  return name.endsWith("(Admin)");
+}
+let chatUser = function (a,b) {
+  if (isAdmin(a)) return -1;
+  if (isAdmin (b)) return 1;
+  return a>b;
+};
+
+console.log(userOnline.sort(chatUser).join("\n"));
+
+// function bla
+
+let x = a + 2;
+alert(a+2);
+
+let t = function (x) {
+  return a+ 2
+};
+alert (t(3))
+
+alert ((function(x) {return x + 7;}))(3);
+
+
 
 // Objekte
 
@@ -19,5 +59,104 @@ let product = {
 alert(product.name);
 product.price = 24.99;
 
+product.description = "Gut zum White Walker töten";
+
 console.dir(product);
 
+
+let product2 = {};
+product2.name = "Telefonzelle";
+product2.price = "1.00";
+product2["category"] = "itemCategory";
+
+console.dir(product2);
+
+let user = {
+  name: "Lena",
+  age: 27,
+}
+
+// "Object" keys / values / entries Ausgabe
+
+console.log(Object.keys(user));
+
+console.log(Object.values(user));
+
+console.log(Object.entries(user));
+
+const FORMAT_PRODUCT = function (produkt) {
+  const NAME = produkt.name;
+  const PRICE = produkt.price;
+  return `* ${name} buow for only ${price}$`
+}
+console.log(FORMAT_PRODUCT(produkt));
+
+
+
+// constructor function
+
+function Item  (name, category, price){
+  this.name = name;
+  this.category = category;
+  this.price = price;
+  this.printShort = function () {
+    console.log (this.name + ": " + this.price + "EUR");
+  }
+}
+
+let item = new Item ("Valeryian Steel Blade", "Swords", 1.99);
+
+console.log(item.name);
+console.log(item.price);
+item.printShort();
+
+let item2 = new Item("")
+
+
+
+let heute = new Date();
+
+//console.log(heute);
+//console.log(`Heute ist der ${heute.getDate()}.${heute.getMonth() +1 }.${heute.getFullYear()}.`);
+ 
+let weekDay = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
+
+console.log(weekDay[heute.getDay()]);
+
+ */
+
+let product = {
+  name: "Valeriyan Steel Blade",
+  category: ["office warefare", "Star Trek"],
+  inStock: 5,
+  price: 25.99,
+}
+
+let productList = [
+    {
+   name: "Valeriyan Steel Blade",
+  category: ["office warefare", "Star Trek"],
+  inStock: 5,
+  price: 25.99,
+},
+    {
+   name: "Laswersword",
+  category: ["office warefare", "Star Wars"],
+  inStock: 3,
+  price: 21.99,
+}
+];
+
+
+
+// JSON
+
+
+
+ // wandelt JS Daten in JSON strings um
+
+console.log(JSON.stringify(product));
+
+// wandelt JSON strings in JS Daten um
+
+console.log(JSON.parse('{"name": "Blade","price":10.00}'));
