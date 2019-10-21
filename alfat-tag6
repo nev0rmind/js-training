@@ -1,1 +1,23 @@
 
+// Objekte
+
+let costumer = {
+  lastName: "Hannarsch",
+  firstName: "Maria",
+  address: "Musterstrasse 1, 12345 Berli"
+}
+
+let product = {
+  name: "Valeriyan Steel",
+  category: "Waffe",
+  inStock: 5,
+  price: 19.99,
+}
+
+//Update Objekteigenschaft
+
+alert(product.name);
+product.price = 24.99;
+
+console.dir(product);
+
