@@ -196,10 +196,12 @@ let halteStellenRechner = function (startBahnhof, endBahnhof){
   let numberStartBahnhof = HALTE_STELLEN.indexOf(startBahnhof);
   let numberEndBahnhof = HALTE_STELLEN.indexOf(endBahnhof);
   
+  if (numberStartBahnhof > numberEndBahnhof){
+  return "Du musst dieselbe Linie in die andere Richtung nehmen";
+  
+  }else{ 
   return HALTE_STELLEN.slice(numberStartBahnhof, numberEndBahnhof + 1);
+    }
 };
 
-console.log(halteStellenRechner(startBahnhof, endBahnhof));
-
-
-
+window.alert((halteStellenRechner(startBahnhof, endBahnhof)));
