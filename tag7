@@ -86,7 +86,7 @@ localStorage.setItem("user", JSON.stringify(user));
 
 let userName = prompt ("Bitte Vor- und Nachnamen eingeben.");
 
-document.cookie = `Benutzer = ${userName} ; expires = Sa, 02 Nov 2019 23:10 UTC`;
+document.cookie = `Benutzer : ${userName} ; expires = Sa, 02 Nov 2019 23:10 UTC`;
 
 sessionStorage.setItem(""Benutzer", JSON.stringify(userName)`);
 
@@ -98,3 +98,25 @@ function sum (zahlA, zahlB){
 }
 summe = sum(1,100);
 console.log(summe);
+
+// Alternativ Aufgabe 3
+
+let zahlA = Number(prompt("Zahl A eingeben."));
+let zahlB = Number(prompt("Zahl B eingeben."));
+
+function sum (){
+    let summe = zahlA + zahlB;
+    try {
+        if (zahlA == "" || zahlB == "") throw "leer";
+        if (isNaN(zahlA) || isNaN(zahlB)) throw "keine Zahl";
+        if (zahlA >= 100 || zahlB >= 100 ) throw "zu groß";
+        if (zahlB < 0 || zahlA < 0 ) throw "negativer wert";
+    } catch (err) {
+        console.log("Eingabe ist: " + err);
+    } finally {
+    }
+    return summe;
+  }
+  summe = sum();
+  console.log(summe);
+
