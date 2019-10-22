@@ -80,3 +80,12 @@ localStorage.setItem("user", JSON.stringify(user));
 }
  
  )
+
+
+// Aufgabe 1
+
+let userName = prompt ("Bitte Vor- und Nachnamen eingeben.");
+
+document.cookie = `Benutzer = ${userName} ; expires = Sa, 02 Nov 2019 23:10 UTC`;
+
+sessionStorage.setItem(""Benutzer", JSON.stringify(userName)`);
