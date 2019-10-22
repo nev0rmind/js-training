@@ -83,12 +83,43 @@ localStorage.setItem("user", JSON.stringify(user));
 
 
 // Aufgabe 1
+"use strict";
 
-let userName = prompt ("Bitte Vor- und Nachnamen eingeben.");
+// User nach dem Namen fragen.
+let username = prompt("Gib deinen Vor- und Nachnamen mit einem Leerzeichen getrennt ein:");
 
-document.cookie = `Benutzer : ${userName} ; expires = Sa, 02 Nov 2019 23:10 UTC`;
+// name als Cookie speichern
+document.cookie = "name=" +username;
 
-sessionStorage.setItem(""Benutzer", JSON.stringify(userName)`);
+// Cookies auslesen, bzw. in der Webkonsole --> Web-Speicher
+/*
+function alertCookie() {
+alert(document.cookie); // zeigt nur die an die nicht nur für https sind (Spalte HttpOnly ist auf false)
+}
+alertCookie();
+*/
+
+// Den Namen in vorname und nachname zerlegen.
+let namenArray = username.split(' '); //das Array hat aus irgendeinem Grund, auch wenn man nichts eingibt durch split mindestens die Länge 1.
+
+try {
+if(namenArray.length < 1 || namenArray.length > 2) { // das Array hat eigentlich immer mind. die Größe 1
+throw "Fehler, bitte Vorname UND Nachname getrennt durch ein Leerzeichen übergeben. Du hast übergeben: " +username;
+}
+//if(namenArray.length === 1) namenArray.push(""); // Der Benutzer hat wahrscheinlich nur seinen Vornamen eingegeben. So erstellt ich einen zweiten Index und kann ihn als nachname abrufen.
+} catch(err) {
+console.log(err); 
+}
+
+let vorname = namenArray[0];
+let nachname = namenArray[1];
+
+//console.log(vorname);
+//console.log(nachname);
+
+// Den Namen in sessionStorage speichern.
+window.sessionStorage.setItem("vorname", vorname);
+window.sessionStorage.setItem("nachname", nachname);
 
 // Aufgabe 3
 
