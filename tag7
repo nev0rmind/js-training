@@ -89,3 +89,12 @@ let userName = prompt ("Bitte Vor- und Nachnamen eingeben.");
 document.cookie = `Benutzer = ${userName} ; expires = Sa, 02 Nov 2019 23:10 UTC`;
 
 sessionStorage.setItem(""Benutzer", JSON.stringify(userName)`);
+
+// Aufgabe 3
+
+function sum (zahlA, zahlB){
+  let summe = zahlA + zahlB;
+  return summe;
+}
+summe = sum(1,100);
+console.log(summe);
