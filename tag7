@@ -1,1 +1,82 @@
 
+/*
+document.coookie = "name=meincookie";
+
+document.cookie = "datenschut=set; expires = Sa, 02 Nov 2019 23:50 UTC";
+
+document.cookie = "username=olifant; max-age=2592000";
+
+function alertCookie(){
+  alert(document.cookie);
+}
+alertCookie();
+
+document.cookie = "shopitem=Wasserflasche, shopitem=Kaffee;"
+
+
+window.sessionsStorage
+
+window.localStorage
+
+localStorage.setItem("firstname","Max");
+localStorage.setItem("lastname", "Mustermann");
+
+sessionStorage.setItem("myCat", "Minka");
+let data = sessionStorage.getItem("myCat");
+
+console.log(data);
+
+sessionStorage.removeItem("myCat");
+sessionStorage.clear();
+
+*/
+(function() {
+
+
+
+})();
+(function() {
+localStorage.setItem("firstname", "Max");
+localStorage.setItem("lastname", "Mustermann");
+
+let firstname = localStorage.getItem("firstname");
+let lastname = localStorage.getItem("lastname");
+
+console.log(firstname);
+console.log(lastname);
+
+localStorage.setItem("firstname", "Moritz");
+localStorage.setItem("lastname", "Peterson");
+
+firstname = localStorage.getItem("firstname");
+lastname = localStorage.getItem("lastname");
+
+console.log(firstname);
+console.log(lastname);
+
+})();
+
+(function() {
+  
+let user = {
+  firstname: "Lena",
+  lastname: "Meier",
+}
+
+//localStorage.setItem("user", user)
+
+localStorage.setItem("user", JSON.stringify(user));
+
+})();
+
+(function(){
+  let user = localStorage.getItem("user");
+  user = JSON.parse(user);
+  console.log(user.firstname);
+  console.log(user.lastname);
+  
+  localStorage.removeItem("firstname");
+  localStorage.removeItem("lastname");
+}
+ 
+ )
