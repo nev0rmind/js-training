@@ -1,0 +1,142 @@
+  //Funktion, die Inhalt von h1 austaucht
+document.querySelector("h1").innerHTML = "Hello Quotes";
+
+
+  //Funktion, die Blockquote mit Inhalt füllt
+  document.querySelector("blockquote").innerHTML = "<ul><li>222</li></ul>";
+
+//Werte in Variablen speichern
+
+let globalList = document.querySelectorAll("li");
+
+// Funktion, die für alle li ein "Punkt - " dem Inhalt vorstetzt
+
+let globalList = document.querySelectorAll("li");
+globalList.forEach(li => li.innerHTML = "Punkt - " + li.innerHTML);
+
+// Funktion, die nur li tags in der zweiten liste selektiert und " (Zweitmenü)" an inhalt anhängt
+
+let localList = document.querySelector("#second_list").querySelectorAll("li");
+localList.forEach(li)
+
+  // Binden von Kurzbefehlen 
+
+  const $ = document.querySelector.bind(document);
+  const $$ = document.querySelectorAll.bind(document);
+
+//Funktion, die Inhalt von h1 austaucht
+document.querySelector("h1").innerHTML = "Hello Quotes";
+
+
+//Funktion, die Blockquote mit Inhalt füllt
+document.querySelector("blockquote").innerHTML = "<ul><li>222</li></ul>";
+
+//Werte in Variablen speichern
+
+let globalList = document.querySelectorAll("li");
+
+// Funktion, die für alle li ein "Punkt - " dem Inhalt vorstetzt
+
+let globalList = $$("li");
+globalList.forEach(li => li.innerHTML = "Punkt - " + li.innerHTML);
+
+// Funktion, die nur li tags in der zweiten liste selektiert und " (Zweitmenü)" an inhalt anhängt
+
+$("#ul2").querySelectorAll("li").forEach(l => l.innerHTML = l.innerHTML + " (Zweitmenü)");
+
+
+// Vernestung von mehreren Tiefen (wie bei CSS Klassen ansprechen)
+
+document.querySelector("header #ul2 > li");
+
+    //classList gibt die CSS-Klassen des Objektes als DOMTokenList zurück
+    
+    console.log($$("#chat_members li")[0].classList);
+    console.log($$("#chat_members li")[1].classList.length);
+   
+       //  .add("") - Klasse hinzufügen
+   
+       $$("#chat_members li")[0].classList.add("highlighted");
+       console.log($$("#chat_members li")[0].classList);
+   
+       //remove("") - Klasse entfernen    
+   
+       $$("#chat_members li")[0].classList.remove("highlighted");
+       console.log($$("#chat_members li")[0].classList);
+   
+       // mehrere hinzufügen/entfernen
+   
+       $$("#chat_members li")[0].classList.remove("highlighted", "admin");
+       console.log($$("#chat_members li")[0].classList);
+   
+       // toggle schaltet um zwischen hinzufügen und entfernen
+   
+       $$("#chat_members li")[0].classList.toggle("highlighted", "admin");
+       console.log($$("#chat_members li")[0].classList);
+       $$("#chat_members li")[0].classList.toggle("highlighted", "admin");
+       console.log($$("#chat_members li")[0].classList);
+   
+       // Prüfen, ob Klasse vorhanden ist
+   
+       $$("#chat_members li")[0].classList.contains("admin");
+   
+   
+     //  Einfügen am Anfang: 
+       NodeList.prototype.__proto__ = Array.prototype; 
+       ----> 
+       const LI_NODES = Array.from($$("#chat_members li")); 
+       ---->
+       const LI_NODES = $$("#chat_members li"); 
+   
+   
+   
+       // Array aus DOM List erzeugen (Array.from) + Suchfunktion in Array: .filter(); + .toLowerCase()
+   
+       const LI_NODES = Array.from($$("#chat_members li"));
+   
+       const SEARCH_FOR = "ert";
+       const LI_NODES_FOUND = LI_NODES.filter(LI_NODES => LI_NODES.innerHTML.toLowerCase().includes(SEARCH_FOR));
+   
+       LI_NODES_FOUND.forEach(li => li.classList.add("highlighted"));
+   
+       //Formular mit numerischen Eingabefeldern ( input type=number ) und der Klasse animated
+       //Klasse animated von diesen Feldern entfernen
+   
+       $$("form input[type='number']").forEach(x => x.classList.remove("animated"));
+   
+       //Element mit id nav
+       //herausfinden, ob Klasse centered
+   
+       $("#nav").classList.contains("centered");
+
+// Aufgabe 4
+/*
+Ein Kunde wendet sich mit folgendem Wunsch an dich:
+Leider sind viele unserer Besucher eher kurz angebunden. Im Forum haben sich nun einige gewünscht, dass die Länge des Artikels schon aus der Überschrift ( h1 ) klar hervorgeht. Unser Designer hat sich deswegen drei Stile für Überschriften überlegt und diese auch als entsprechende CSS-Klassen hinterlegt.
+Miss die Länge eines Artikels in Zeichen und gib den Überschriften automatisch die richtige Klasse.
+•	coffe_break_article bis 3000 Zeichen
+•	normal_length_article bis 9000 Zeichen
+•	lone_weekend_article ab 9000 Zeichen
+Es geht um die Detailseiten der Artikel. Gehe davon aus, dass jede dieser Seiten nur genau eine h1 -Überschrift hat und der komplette Artikel (inklusive Bildern und HTML-Struktur) sich in einem Element mit der id content befindet.
+Für das Zählen der Zeichen darfst Du den kompletten HTML-Code von content auswerten. Es geht nur darum, eine grobe Abschätzung zu bekommen.
+Die HTML-Beispieldatei zum Ausprobieren heißt article_length.html im Ordner article_length.  
+Durch Duplizieren oder Löschen von Lorem-ipsum-Absätzen kannst Du unterschiedliche Textlängen einfach testen.
+
+*/
+
+       "use strict";
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+    NodeList.prototype.__proto__ = Array.prototype;
+
+
+  const CLASS_H1 = (textLength) => {
+  if (textLength <= 3000) return "coffee_break_article";
+  else if (textLength > 3000 || textLength < 9000 ) return "normal_length_article";
+  return "lone_weekend_article";
+};
+
+    let textLength = () => $("#content").innerHTML.length;
+    $("h1").classList.add(CLASS_H1(textLength()));
+
+    console.log($$("h1").classList);
