@@ -22,34 +22,70 @@ $$("button").on("click", e =>
 
 Übung part6\color_change2:
 "use strict";
-$$("input[type='range']").on("input", () =>
-$("body").style.backgroundColor = 
-`rgb(${$("#red").value}, ${$("#green").value}, ${$("#blue").value})`);
+{
+// Aufgabe 2
+const rgbInputs = $$("body > input");
+let red = rgbInputs[0].value, 
+green = rgbInputs[1].value, 
+blue = rgbInputs[2].value;
+
+$("body").style.backgroundColor = `rgb(${red},${green},${blue})`;
+
+const inputColorPicker = e => {
+red = rgbInputs[0].value;
+green = rgbInputs[1].value;
+blue = rgbInputs[2].value;
+$("body").style.backgroundColor = `rgb(${red},${green},${blue})`;
+}
+
+for(let i = 0; i < rgbInputs.length; i++)
+rgbInputs[i].addEventListener("mousemove", inputColorPicker);
+}
 
 Übung 3:
-"use strict";
-for (let i=1; i<=3; i++) {
-  $("body").appendChild(document.createElement("p"));
+
+// Aufgabe 3
+let newButtonElement = document.createElement("button"),
+newTextElement = document.createElement("p"),
+newTrElement = document.createElement("tr"),
+newThElement = document.createElement("th"),
+newThElement2 = document.createElement("th");
+
+newButtonElement.textContent = "OK";
+
+for(let i = 0; i < 3; i++)
+$("body").appendChild(document.createElement("div"));
+
+const allDivElements = $$("body > div");
+
+const buttonClick = e => {
+e.target.disabled = true;
+e.target.textContent = "NO"
 }
-$("body p:first-child").textContent = "Mein Text steht hier";
-$("body p:nth-child(2)").appendChild(document.createElement("table"));
-$("body > p > table").appendChild(document.createElement("tbody"));
-$("body table > tbody").appendChild(document.createElement("tr"));
-$("body table > tbody > tr").appendChild(document.createElement("td"));
-$("body table > tbody > tr").appendChild(document.createElement("td"));
 
-$$("body table tr > td").forEach(td => {
-    td.textContent = "Mein Text steht hier";
-});
-
-const disableButtons = (target) => {
-    target.disabled = "true";
-};
-const meinbutton = document.createElement("button");
-meinbutton.textContent = "Klick nicht";
-meinbutton.on("click", event => disableButtons(event.target));
-
-$("body p:last-child").appendChild(meinbutton);
+for(let i = 0; i < allDivElements.length; i++){
+switch(i){
+case 0: allDivElements[i].appendChild(newTextElement);
+$("body > div > p").textContent = "Lorem Ipsum....";
+break;
+case 1: allDivElements[i].appendChild(newTrElement);
+newThElement.textContent = "th 1";
+newThElement.style.borderStyle = "solid";
+newThElement.style.borderWidth = "1px";
+$("body > div > tr").appendChild(newThElement);
+newThElement2.textContent = "th 2";
+newThElement2.style.borderStyle = "solid";
+newThElement2.style.borderWidth = "1px";
+$("body > div > tr").appendChild(newThElement2);
+break;
+case 2: newButtonElement.style.marginTop = "20px";
+allDivElements[i].appendChild(newButtonElement);
+$("body > div > button").addEventListener("click", buttonClick);
+break;
+default:
+}
+}
+}
 
 
 
