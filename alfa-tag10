@@ -1,1 +1,207 @@
+Style
+Übung part6\color_change1: 
+Platziere drei Buttons (button -Tag) auf einer Seite mit den Texten »Red«, »Green« und »Blue«. Bei Betätigung eines Buttons soll sich der Hintergrund der Seite entsprechend färben.
 
+Übung part6\color_change2: 
+Platziere drei Regler ( input type="range" ) auf einer Seite, die jeweils für einen Farbanteil des RGB-Farbmodells zuständig sind. Jedesmal, wenn ein Anwender einen Regler verschiebt, soll sich der Hintergrund der Seite entsprechend anpassen. Die drei Regler bestimmen dabei die Farbe anhand der entsprechenden Farbanteile. 
+Hinweis – die Regöer geben einen Zahlenwert zurück, der abgefragt und verwendet werden kann
+
+Übung 3:
+Erstelle über JS:
+•	Erstelle direkt im body 3 Absätze
+•	In den ersten Absatz füge einen Text ein.
+•	In den zweiten Absatz füge eine Tabelle mit 2 Spalten ein und fülle diese mit Text.
+•	In den dritten Absatz kommt ein Button, der bei Klick deaktiviert wird.
+
+ 
+Lösungen:
+Übung part6\color_change1:
+"use strict";
+$$("button").on("click", e => 
+  $("body").style.backgroundColor = e.target.innerHTML);
+
+Übung part6\color_change2:
+"use strict";
+$$("input[type='range']").on("input", () =>
+$("body").style.backgroundColor = 
+`rgb(${$("#red").value}, ${$("#green").value}, ${$("#blue").value})`);
+
+Übung 3:
+"use strict";
+for (let i=1; i<=3; i++) {
+  $("body").appendChild(document.createElement("p"));
+}
+$("body p:first-child").textContent = "Mein Text steht hier";
+$("body p:nth-child(2)").appendChild(document.createElement("table"));
+$("body > p > table").appendChild(document.createElement("tbody"));
+$("body table > tbody").appendChild(document.createElement("tr"));
+$("body table > tbody > tr").appendChild(document.createElement("td"));
+$("body table > tbody > tr").appendChild(document.createElement("td"));
+
+$$("body table tr > td").forEach(td => {
+    td.textContent = "Mein Text steht hier";
+});
+
+const disableButtons = (target) => {
+    target.disabled = "true";
+};
+const meinbutton = document.createElement("button");
+meinbutton.textContent = "Klick nicht";
+meinbutton.on("click", event => disableButtons(event.target));
+
+$("body p:last-child").appendChild(meinbutton);
+
+
+
+
+
+<--------------------------------------------------------------------------------------------------------------->
+
+"use strict";
+
+/*
+if (!('remove' in Element.prototype)) {
+Element.prototype.remove = function() {
+if (this.parentNode) {this.parentNode.removeChild(this);}
+};
+}
+*/
+// Begin old Code
+
+
+// ausgelagerte Funktion des Eventhandlers
+const addProduct = () => {
+// erzeugen des HTML-Objektes td für Produktname – vorerst Speicherung in Konstante
+const valueTd = document.createElement("td");
+
+// mit .textContent zuweisen des eingegebenen Textes als Inhalt
+valueTd.textContent = $("#new_product .name").value;
+
+// erzeugen des HTML-Objektes td für Preis – vorerst Speicherung in Konstante
+const priceTd = document.createElement("td");
+// mit textContent zuweisen des eingegebenen Textes als Inhalt
+priceTd.textContent = $("#new_product .price").value;
+
+const actionsTd = document.createElement("td");
+
+const buttonRemove = document.createElement("button");
+buttonRemove.textContent = "x";
+buttonRemove.classList.add("remove_product");
+buttonRemove.on("click", event => event.target.parentNode.parentNode.remove()).on("click", () => disableNonFunctionalButtons());
+
+const buttonSubmit = document.createElement("button");
+buttonSubmit.textContent = "DA";
+buttonSubmit.on("onmouseover", event => addToCart(event.target)).on("onmouseover", () => disableNonFunctionalButtons());
+
+const buttonUp = document.createElement("button");
+buttonUp.textContent = "↑";
+buttonUp.classList.add("move_product_up");
+buttonUp.on("click", event => moveProductUp(event.target)).on("click", () => disableNonFunctionalButtons());
+
+const buttonDown = document.createElement("button");
+buttonDown.textContent = "↓";
+buttonDown.classList.add("move_product_down");
+buttonDown.on("click", event => moveProductDown(event.target)).on("click", () => disableNonFunctionalButtons());
+
+actionsTd.appendChild(buttonRemove);
+actionsTd.appendChild(buttonUp);
+actionsTd.appendChild(buttonDown);
+actionsTd.appendChild(buttonSubmit);
+
+
+// erzeugen des HTML-Objektes tr – vorerst Speicherung in Konstante
+const productTr = document.createElement("tr");
+
+
+
+// mit appendChild werden beide td-Knoten an tr-Knoten angehängt 
+productTr.appendChild(valueTd);
+productTr.appendChild(priceTd);
+// erzeugen und zuweisen des HTML-Objektes td für Aktionen 
+productTr.appendChild(actionsTd);
+
+
+// neue Tabellenzeile tr wird am Ende des tbody-tags angehängt
+$("#products > tbody").appendChild(productTr);
+disableNonFunctionalButtons();
+};
+
+// zuerst Klick-Ereignis an Button binden – EventHandler wird in Funktion ausgelagert, soll einiges tun 
+$("#add_product").on("click", addProduct);
+
+
+// letzte Tabellenzellen selektieren
+const lastCells = $$("#products > tbody td:last-child");
+
+
+
+// remove-Button erstellen
+for ( let i = 0; i < lastCells.length; i++) {
+const button = document.createElement("button");
+button.textContent = "x";
+button.classList.add("remove_product");
+button.on("click", event => event.target.parentNode.parentNode.remove());
+lastCells[i].appendChild(button);
+}
+
+/* removeProduct muss ganze Tabellen-Zeile ( tr ) mit Produkt entfernen Dazu müssen Sie sie
+erst finden. Wenn Sie vom Button aus (hier event.target ) zwei Ebenen in der Baumstruktur nach
+oben wechseln, haben Sie die Zeile. Das Nach-oben-Wechseln lässt sich mit dem Attribut parentNode
+erreichen — Sie suchen den jeweiligen Elternknoten.
+event.target.parentNode.parentNode
+
+button.on("click", event => console.log(event)); wird ersetzt durch
+button.on("click", event => event.target.parentNode.parentNode.remove());
+
+*/
+// End old Code
+
+
+// Begin new Code
+
+// Erstellung der up- und down-Button
+
+for (let i = 0; i < lastCells.length; i++) {
+const buttonUp = document.createElement("button");
+buttonUp.textContent = "↑";
+buttonUp.classList.add("move_product_up");
+buttonUp.on("click", event => moveProductUp(event.target)).on("click", () => disableNonFunctionalButtons());
+lastCells[i].appendChild(buttonUp);
+
+const buttonDown = document.createElement("button");
+buttonDown.textContent = "↓";
+buttonDown.classList.add("move_product_down");
+buttonDown.on("click", event => moveProductDown(event.target)).on("click", () => disableNonFunctionalButtons());
+lastCells[i].appendChild(buttonDown);
+}
+
+// Erstellung der eventHandler für die Button
+
+const moveProductUp = event => {
+const currentProductRow = event.parentNode.parentNode;
+currentProductRow.parentNode.insertBefore(currentProductRow, currentProductRow.previousElementSibling);
+}
+
+const moveProductDown = event => {
+const currentProductRow = event.parentNode.parentNode;
+currentProductRow.parentNode.insertBefore(currentProductRow, currentProductRow.nextElementSibling.nextElementSibling);
+}
+
+// Add to cart
+
+const addToCart = event => {
+    document.createElement("img");
+    addToCart.setAttribute("src", "data:image/png;base64,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")
+    addToCart.setAttribute("height", "100px");
+    addToCart.setAttribute("width", "100px");
+    document.body.appendChild(addToCart);
+}
+// Deaktivieren der Button, die keine Geschwister in laufrichtung haben
+
+const disableNonFunctionalButtons = () =>
+$$("#products > tbody >tr").forEach(tr => {
+tr.querySelector(".move_product_up").disabled = !tr.previousElementSibling;
+tr.querySelector(".move_product_down").disabled = !tr.nextElementSibling;
+});
+
+disableNonFunctionalButtons();
