@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>ABC</title>
+    <style>
+    </style>
+
+    <script>
+        'use strict';
+
+        let myArray = [];
+        
+        for (let i = 0; i < 100; i++){
+            let myRandomNumber = Math.floor(Math.random()*50 + 1);
+            myArray.push(myRandomNumber);
+        }
+        console.log(myArray);
+
+    function sumItUp (total, num) {
+        return total + num;
+    }
+    
+    let mySum = myArray.reduce(sumItUp);
+
+ 
+    
+    let myNewSum = myArray.splice(50);
+
+   console.log (myNewSum);
+
+   function removeOdds (element){
+    return element % 2 === 0;      
+   }
+
+   let myNewNoOddArray = myArray.every(removeOdds);
+
+    console.log(myNewNoOddArray);
+
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
